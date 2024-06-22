@@ -4,6 +4,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { provideHttpClient, withJsonpSupport } from '@angular/common/http';
 
 
 
@@ -21,6 +22,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     
     MaterialModule,
     MatSidenavModule
-  ]
+    
+  ],
+  providers: [provideHttpClient()]
 })
 export class SharedModule { }
