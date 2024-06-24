@@ -89,6 +89,32 @@ dataSource = new MatTableDataSource<JugadorElement>();
     
   }
 
+  edit(jugador:JugadorElement){
+
+    const dialogRef = this.dialog.open( NewjugadorComponent, {
+      
+      data: { jugador },
+      width: '50%'
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      console.log('The dialog was closed');
+
+      if(result == 1){
+        this.openSnackBar("Jugador agregado", "Exitosa");
+        this.getJugadores();
+        console.log("envia ok openSnackBar");
+
+      }else if (result == 2){
+        this.openSnackBar("Error al guardar el jugador", "Error");
+        console.log("envia error openSnackBar");
+
+      }
+     
+    });
+
+  }
+
   openSnackBar(mensaje: string, action:string) : MatSnackBarRef<SimpleSnackBar>{
 
     return this.snackBar.open(mensaje, action, {

@@ -22,5 +22,10 @@ export class JugadorService {
     return this.http.post(endpoint,body);
   }
 
+  updateJugador(body:any, id:any){
+    const endpoint = `${base_url}/Jugadores/${id}`;
+    return this.http.put(endpoint,body);
+  }
+
 
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Inject, Input, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JugadorService } from '../../../shared/services/jugador.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { JugadorComponent } from '../jugador/jugador.component';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { JugadorComponent, JugadorElement } from '../jugador/jugador.component';
 // import { DatePipe } from '@angular/common';
 
 @Component({
@@ -17,21 +17,42 @@ export class NewjugadorComponent implements OnInit {
   private fb = inject(FormBuilder);
   private jugadorService = inject(JugadorService);
    private dialogRef = inject(MatDialogRef);
+
+   @Input()  jugadorC!: JugadorElement ;
+    public  diaglogData = inject(MAT_DIALOG_DATA);
+
+    estadoFormulario: string = "Agregar nuevo jugador"
+   
   //  private datePipe = inject(DatePipe)
 
-  // constructor(
-  //   public dialogRef: MatDialogRef<JugadorComponent>) { }
+  // constructor(@Inject(MAT_DIALOG_DATA) public dialogData) {
+  //   this.jugadorC = dialogData; // Asignar los datos inyectados a una propiedad del componente
+
+  //   const jugadorss: JugadorElement = JSON.parse(dialogData);
+  // }
+
 
 ngOnInit(): void {
-   this.jugadorForm= this.fb.group({
+  
+  this.jugadorForm= this.fb.group({
+  
+   nombres:['', Validators.required],
+   apellidos:['', Validators.required],
+   categoria:['', Validators.required],
+   fechaNacimeinto:['', Validators.required],
+   posicion:['', Validators.required]
+  
+  })
 
-    nombres:['', Validators.required],
-    apellidos:['', Validators.required],
-    categoria:['', Validators.required],
-    fechaNacimeinto:['', Validators.required],
-    posicion:['', Validators.required]
+if (this.diaglogData != null){
+  this.jugadorC = this.diaglogData["jugador"];
+  this.updateForm(this.jugadorC);
+  this.estadoFormulario = "Actualizar jugador / " + this.jugadorC.nombres + " " + this.jugadorC.apellidos;
+}
 
-   })
+
+
+
   }
 
   onSave(){
@@ -48,20 +69,32 @@ ngOnInit(): void {
         posicion: this.jugadorForm.get('posicion')?.value ,
          fechaIngreso: `${fi.getFullYear()}-${fi.getMonth() < 10 ? '0' : '' }${fi.getMonth()+1}-${fi.getDate()}` 
     }
-    this.jugadorService.saveJugador(data)
-      .subscribe({
-        next:  resp => {
-          console.log("respuesta jugadores", resp);
-          this.dialogRef.close(1);
-        },
-        error: err =>{
-          console.log("data:" , data);    
-          console.log("error:" , err);    
-          this.dialogRef.close(2);
-        }
 
-      })
 
+    if ( this.diaglogData != null ) {
+      
+      this.jugadorService.updateJugador(data , this.jugadorC.id )
+        .subscribe({
+          next:  resp => {
+            this.dialogRef.close(1);
+          },
+          error: err =>{  
+            this.dialogRef.close(2);
+          }
+        })
+
+    } else {
+      
+      this.jugadorService.saveJugador(data)
+        .subscribe({
+          next:  resp => {
+            this.dialogRef.close(1);
+          },
+          error: err =>{  
+            this.dialogRef.close(2);
+          }
+        })
+    }
 
   }  
 
@@ -70,5 +103,21 @@ ngOnInit(): void {
     this.dialogRef.close(3);
   }
 
+  updateForm(data: any){
+// console.log("Entra al update jugador", data)
+// Object.keys(data).forEach (key =>{
+//   console.log(`${key}: ${data[key]}`);
+// })
+
+    this.jugadorForm= this.fb.group({    
+
+      nombres:[data.nombres, Validators.required],
+      apellidos:[data.apellidos, Validators.required],
+      categoria:[data.categoria, Validators.required],
+      fechaNacimeinto:[data.fechaNacimeinto, Validators.required],
+      posicion:[data.posicion, Validators.required]
+  
+     })
+  }
 
 }

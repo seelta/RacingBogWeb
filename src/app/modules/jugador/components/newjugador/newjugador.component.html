@@ -1,5 +1,5 @@
 
-<h4 mat-dialog-title> Agregar nuevo jugador </h4>
+<h4 mat-dialog-title> {{estadoFormulario}} </h4>
 <mat-dialog-content>
     <form [formGroup]="jugadorForm"> 
         <div>
@@ -57,5 +57,7 @@
     <button mat-button color="primary" (click)="onCancel()">
         <mat-icon>cancel</mat-icon> Cancelar
     </button>
+
+ 
 
 </mat-dialog-actions>
