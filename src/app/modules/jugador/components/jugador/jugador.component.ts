@@ -2,6 +2,9 @@ import { Component, OnInit, inject } from '@angular/core';
 import { JugadorService } from '../../../shared/services/jugador.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Element } from '@angular/compiler';
+import { MatDialog } from '@angular/material/dialog';
+import { NewjugadorComponent } from '../newjugador/newjugador.component';
+import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-jugador',
@@ -11,6 +14,10 @@ import { Element } from '@angular/compiler';
 export class JugadorComponent implements OnInit {
   
   private jugadorService = inject(JugadorService);
+
+  readonly dialog = inject(MatDialog);
+
+  private snackBar=inject(MatSnackBar)
 
 
   ngOnInit(): void {
@@ -56,8 +63,41 @@ dataSource = new MatTableDataSource<JugadorElement>();
     }
 
   }
+  
+  openJugadorDialog(){
+
+    const dialogRef = this.dialog.open( NewjugadorComponent, {
+      width: '50%'
+      // data: {name: this.name(), animal: this.animal()},
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      console.log('The dialog was closed');
+
+      if(result == 1){
+        this.openSnackBar("Jugador agregado", "Exitosa");
+        this.getJugadores();
+        console.log("envia ok openSnackBar");
+
+      }else if (result == 2){
+        this.openSnackBar("Error al guardar el jugador", "Error");
+        console.log("envia error openSnackBar");
+
+      }
+     
+    });
+    
+  }
+
+  openSnackBar(mensaje: string, action:string) : MatSnackBarRef<SimpleSnackBar>{
+
+    return this.snackBar.open(mensaje, action, {
+      duration: 2000
+    });
+  }
 
 }
+
 
 
 export interface JugadorElement{

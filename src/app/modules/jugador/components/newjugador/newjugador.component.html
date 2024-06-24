@@ -1,0 +1,61 @@
+
+<h4 mat-dialog-title> Agregar nuevo jugador </h4>
+<mat-dialog-content>
+    <form [formGroup]="jugadorForm"> 
+        <div>
+
+
+            <mat-grid-list cols="2" rowHeight="2:1">
+
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <input matInput placeholder="Nombre" formControlName="nombres" required />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <input matInput placeholder="Apellido" formControlName="apellidos"  required />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <input matInput placeholder="Categoria" formControlName="categoria"  required />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <input matInput placeholder="Posicion" formControlName="posicion"  required />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Fecha nacimiento</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="fechaNacimeinto" >
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                </mat-grid-tile>
+
+              </mat-grid-list>
+
+        </div>
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button mat-button color="primary" (click)="onSave()" [disabled]="jugadorForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancelar
+    </button>
+
+</mat-dialog-actions>

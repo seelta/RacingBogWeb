@@ -13,11 +13,14 @@ export class JugadorService {
 
 
   getJugadores(){
-
     const endpoint = `${base_url}/Jugadores`;
-
     return this.http.get(endpoint);
-
   }
+
+  saveJugador(body:any){
+    const endpoint = `${base_url}/Jugadores`;
+    return this.http.post(endpoint,body);
+  }
+
 
 }
