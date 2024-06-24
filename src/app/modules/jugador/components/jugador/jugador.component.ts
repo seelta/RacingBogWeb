@@ -5,6 +5,7 @@ import { Element } from '@angular/compiler';
 import { MatDialog } from '@angular/material/dialog';
 import { NewjugadorComponent } from '../newjugador/newjugador.component';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
+import { ConfirmComponent } from '../../../shared/components/confirm/confirm.component';
 
 @Component({
   selector: 'app-jugador',
@@ -112,6 +113,33 @@ dataSource = new MatTableDataSource<JugadorElement>();
       }
      
     });
+
+  }
+
+
+  delete(id:any){
+
+    const dialogRef = this.dialog.open( ConfirmComponent, {
+      
+      data: { id:id },
+      height: '30%'
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      console.log('The dialog was closed');
+
+      if(result == 1){
+        this.openSnackBar("Jugador eliminado", "Exitosa");
+        this.getJugadores();
+        console.log("envia ok openSnackBar");
+
+      }else if (result == 2){
+        this.openSnackBar("Error al eliminar el jugador", "Error");
+        console.log("envia error openSnackBar");
+
+      }
+     
+    });   
 
   }
 

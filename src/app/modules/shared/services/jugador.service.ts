@@ -27,5 +27,10 @@ export class JugadorService {
     return this.http.put(endpoint,body);
   }
 
+  deleteJugador( id:any){
+    const endpoint = `${base_url}/Jugadores/${id}`;
+    return this.http.delete(endpoint);
+  }
+
 
 }
