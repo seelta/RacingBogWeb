@@ -143,6 +143,24 @@ dataSource = new MatTableDataSource<JugadorElement>();
 
   }
 
+  buscar(s : String){
+    console.log(s);
+    if (s.length === 0 ) {
+        return this.getJugadores();
+    } 
+    
+    this.jugadorService.getJugadorById(s)
+    .subscribe({
+      next: res =>{
+        this.processJugadorResponse(res);
+      },
+      error: err =>{
+        return this.getJugadores();
+      }
+    })
+
+  }
+
   openSnackBar(mensaje: string, action:string) : MatSnackBarRef<SimpleSnackBar>{
 
     return this.snackBar.open(mensaje, action, {

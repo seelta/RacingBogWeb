@@ -32,5 +32,9 @@ export class JugadorService {
     return this.http.delete(endpoint);
   }
 
+  getJugadorById( id:any){
+    const endpoint = `${base_url}/Jugadores/${id}`;
+    return this.http.get(endpoint);
+  }
 
 }
