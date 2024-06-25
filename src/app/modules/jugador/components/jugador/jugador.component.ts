@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ViewChild, inject, viewChild } from '@angular/core';
 import { JugadorService } from '../../../shared/services/jugador.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Element } from '@angular/compiler';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewjugadorComponent } from '../newjugador/newjugador.component';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { ConfirmComponent } from '../../../shared/components/confirm/confirm.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-jugador',
@@ -29,6 +30,9 @@ export class JugadorComponent implements OnInit {
 dispayedColums: string[] =['id','nombres','apellidos', 'categoria', 'posicion', 'fechaNacimeinto', 'fechaIngreso', 'actions'];
 
 dataSource = new MatTableDataSource<JugadorElement>();
+
+@ViewChild(MatPaginator)
+paginator!: MatPaginator;
 
   getJugadores(): void{
 
@@ -59,8 +63,8 @@ dataSource = new MatTableDataSource<JugadorElement>();
       });
 
       this.dataSource=new MatTableDataSource<JugadorElement>(dataJugador);
+      this.dataSource.paginator = this.paginator
 
-      console.log("valida lo que va", this.dataSource.data)
     }
 
   }
