@@ -47,7 +47,7 @@ ngOnInit(): void {
 if (this.diaglogData != null){
   this.jugadorC = this.diaglogData["jugador"];
   this.updateForm(this.jugadorC);
-  this.estadoFormulario = "Actualizar jugador / " + this.jugadorC.nombres + " " + this.jugadorC.apellidos;
+  this.estadoFormulario = "Actualizar jugador / " + this.jugadorC.idPersona.nombres + " " + this.jugadorC.idPersona.apellidos;
 }
 
 
@@ -73,7 +73,7 @@ if (this.diaglogData != null){
 
     if ( this.diaglogData != null ) {
       
-      this.jugadorService.updateJugador(data , this.jugadorC.id )
+      this.jugadorService.updateJugador(data , this.jugadorC.idJugador )
         .subscribe({
           next:  resp => {
             this.dialogRef.close(1);

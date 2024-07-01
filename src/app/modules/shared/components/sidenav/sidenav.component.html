@@ -35,24 +35,29 @@
             <mat-sidenav #snav [mode]="mobileQuery.matches? 'over': 'side'"
                     [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 
-                <mat-nav-list>
-                    <!--profile-->
-                    <div class="profile-card">
-                        <div class="header">
-                            <h2>Alfredo Leal</h2>
-                            <h4>alfredo.leal.pinogmail.com</h4>
-                        </div>
-                    </div>
+                    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style=" height: 100%;">
+                      
+                        <hr>
 
-                    <mat-divider></mat-divider>
+                        <ul  class="nav nav-pills flex-column mb-auto">
+                        
+                          <li class="nav-item" *ngFor="let nav of menuNav">
+                            <a  [routerLink]="nav.route"   class="nav-link text-white" >
+                                <mat-icon class="icono"> {{ nav.icon }}</mat-icon>
+                                {{nav.name}}
+        
+                            </a>
+        
 
-                    <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of menuNav">
-                        <mat-icon class="icono"> {{ nav.icon }}</mat-icon>
-                        <span class="name">{{nav.name}}</span>
 
-                    </a>
+                          </li>
+                        </ul>
+                            
 
-                </mat-nav-list>
+
+                        <hr>
+                        
+                      </div>
 
             </mat-sidenav> 
 

@@ -5,19 +5,24 @@ import { MaterialModule } from '../shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { NewjugadorComponent } from './components/newjugador/newjugador.component';
+import { EditjugadorComponent } from './components/editjugador/editjugador.component';
+import { NgbModule, NgbNavItem } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
   declarations: [
     JugadorComponent,
-    NewjugadorComponent
+    NewjugadorComponent,
+    EditjugadorComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule,
+    NgbModule,
+    MaterialModule,    
     FormsModule,
     ReactiveFormsModule
+    
   ],
   providers:[provideHttpClient()]
 })

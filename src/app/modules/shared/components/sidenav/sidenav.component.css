@@ -43,10 +43,10 @@ ul li {
     margin-right: 10px;
 }
 
-div ul {
+/* div ul {
    display: flex;
    align-items: center; 
-}
+} */
 
 .right{
     margin-left: auto;
