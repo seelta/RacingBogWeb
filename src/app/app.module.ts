@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PersonaComponent } from './modules/persona/components/persona/persona.component';
 
 
 @NgModule({

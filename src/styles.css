@@ -9,11 +9,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root,:host{
     --mdc-protected-button-container-shape:10px;
-    --mat-sidenav-container-shape:8px
-;--sys-background:#f7f9ff;--sys-on-background:#181c20;--sys-surface:#f7f9ff;--sys-surface-dim:#d8dadf;--sys-surface-bright:#f7f9ff;--sys-surface-container-lowest:#ffffff;--sys-surface-container-low:#f1f4f9;--sys-surface-container:#eceef3;--sys-surface-container-high:#e6e8ee;--sys-surface-container-highest:#e0e2e8;--sys-on-surface:#181c20;--sys-surface-variant:#dbe5df;--sys-on-surface-variant:#3f4945;--sys-inverse-surface:#2d3135;--sys-inverse-on-surface:#eef1f6;--sys-outline:#6f7974;--sys-outline-variant:#bfc9c3;--sys-shadow:#000000;--sys-scrim:#000000;--sys-surface-tint:#006970;--sys-primary:#006970;--sys-on-primary:#ffffff;--sys-primary-container:#9df0f8;--sys-on-primary-container:#002022;--sys-inverse-primary:#80d4db;--sys-secondary:#904a43;--sys-on-secondary:#ffffff;--sys-secondary-container:#ffdad6;--sys-on-secondary-container:#3b0907;--sys-tertiary:#89511f;--sys-on-tertiary:#ffffff;--sys-tertiary-container:#ffdcc4;--sys-on-tertiary-container:#2f1500;--sys-error:#8f4c33;--sys-on-error:#ffffff;--sys-error-container:#ffdbcf;--sys-on-error-container:#380d00;--sys-neutral:#74777c;--sys-neutral-variant:#6f7974;--sys-primary-fixed:#9df0f8;--sys-primary-fixed-dim:#80d4db;--sys-on-primary-fixed:#002022;--sys-on-primary-fixed-variant:#004f54;--sys-secondary-fixed:#ffdad6;--sys-secondary-fixed-dim:#ffb4ab;--sys-on-secondary-fixed:#3b0907;--sys-on-secondary-fixed-variant:#73332d;--sys-tertiary-fixed:#ffdcc4;--sys-tertiary-fixed-dim:#ffb77f;--sys-on-tertiary-fixed:#2f1500;--sys-on-tertiary-fixed-variant:#6c3a08;--sys-inverse-secondary:#ffb4ab;--sys-inverse-tertiary:#ffb77f;--sys-inverse-error:#ffb59b;--sys-error-fixed:#ffdbcf;--sys-error-fixed-dim:#ffb59b;--sys-on-error-fixed:#380d00;--sys-on-error-fixed-variant:#72361e;
+    --mat-sidenav-container-shape:8px;
+    --mdc-dialog-container-shape: 4px;
+    --sys-background:#f7f9ff;--sys-on-background:#181c20;--sys-surface:#f7f9ff;--sys-surface-dim:#d8dadf;--sys-surface-bright:#f7f9ff;--sys-surface-container-lowest:#ffffff;--sys-surface-container-low:#f1f4f9;--sys-surface-container:#eceef3;--sys-surface-container-high:#e6e8ee;--sys-surface-container-highest:#e0e2e8;--sys-on-surface:#181c20;--sys-surface-variant:#dbe5df;--sys-on-surface-variant:#3f4945;--sys-inverse-surface:#2d3135;--sys-inverse-on-surface:#eef1f6;--sys-outline:#6f7974;--sys-outline-variant:#bfc9c3;--sys-shadow:#000000;--sys-scrim:#000000;--sys-surface-tint:#006970;--sys-primary:#006970;--sys-on-primary:#ffffff;--sys-primary-container:#9df0f8;--sys-on-primary-container:#002022;--sys-inverse-primary:#80d4db;--sys-secondary:#904a43;--sys-on-secondary:#ffffff;--sys-secondary-container:#ffdad6;--sys-on-secondary-container:#3b0907;--sys-tertiary:#89511f;--sys-on-tertiary:#ffffff;--sys-tertiary-container:#ffdcc4;--sys-on-tertiary-container:#2f1500;--sys-error:#8f4c33;--sys-on-error:#ffffff;--sys-error-container:#ffdbcf;--sys-on-error-container:#380d00;--sys-neutral:#74777c;--sys-neutral-variant:#6f7974;--sys-primary-fixed:#9df0f8;--sys-primary-fixed-dim:#80d4db;--sys-on-primary-fixed:#002022;--sys-on-primary-fixed-variant:#004f54;--sys-secondary-fixed:#ffdad6;--sys-secondary-fixed-dim:#ffb4ab;--sys-on-secondary-fixed:#3b0907;--sys-on-secondary-fixed-variant:#73332d;--sys-tertiary-fixed:#ffdcc4;--sys-tertiary-fixed-dim:#ffb77f;--sys-on-tertiary-fixed:#2f1500;--sys-on-tertiary-fixed-variant:#6c3a08;--sys-inverse-secondary:#ffb4ab;--sys-inverse-tertiary:#ffb77f;--sys-inverse-error:#ffb59b;--sys-error-fixed:#ffdbcf;--sys-error-fixed-dim:#ffb59b;--sys-on-error-fixed:#380d00;--sys-on-error-fixed-variant:#72361e;
 }
 
-.mat-mdc-raised-button{
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+    background-color: #f4f1f000 !important;
+    border-radius: 8px !important;
+    color: #000000 !important;
+  }
 
-
-}
+.snackbar-success {
+    background-color: var(--bs-success-bg-subtle) !important;
+    border: solid 1px var(--bs-success-border-subtle) !important;
+    border-radius: 8px !important;
+  }
+.snackbar-warning {
+    background-color: var(--bs-warning-bg-subtle) !important; /* Naranja para advertencias */    
+    border: solid 1px var(--bs-warning-border-subtle) !important;    
+    border-radius: 8px !important;
+  }
+.snackbar-error {
+    background-color: var(--bs-danger-bg-subtle) !important; /* Rojo para errores */
+    border: solid 1px var(--bs-danger-border-subtle) !important;
+    border-radius: 8px !important;
+  }
+  

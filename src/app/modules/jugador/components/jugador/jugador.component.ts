@@ -9,6 +9,7 @@ import { ConfirmComponent } from '../../../shared/components/confirm/confirm.com
 import { MatPaginator } from '@angular/material/paginator';
 
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Jugador } from '../../../../Models/jugador';
 
 
 @Component({
@@ -17,27 +18,19 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrl: './jugador.component.css',
   animations: [
     trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0,
-        height: '0px'
-      })),
-      transition('void <=> *', [
-        animate(300)
-      ])
-    ])
-  ],
- 
+      state('void', style({opacity: 0,height: '0px' })),
+      transition('void <=> *', [animate(300)])])]
 })
 export class JugadorComponent implements OnInit {
   
   private jugadorService = inject(JugadorService);
-
   readonly dialog = inject(MatDialog);
-
-  private snackBar=inject(MatSnackBar)
-
+  private snackBar=inject(MatSnackBar);
   isEditJugador: boolean = false;
 
+  jugador: Jugador | null = null;
+  
+  
   ngOnInit(): void {
     this.getJugadores();
   }
@@ -45,7 +38,7 @@ export class JugadorComponent implements OnInit {
 
 dispayedColums: string[] =['id','nombres','apellidos', 'categoria', 'posicion', 'fechaNacimeinto', 'fechaIngreso', 'actions'];
 
-dataSource = new MatTableDataSource<JugadorElement>();
+dataSource = new MatTableDataSource<Jugador>();
 
 @ViewChild(MatPaginator)
 paginator!: MatPaginator;
@@ -67,18 +60,22 @@ paginator!: MatPaginator;
         )}
 
   processJugadorResponse(resp:any){
-    const dataJugador: JugadorElement[] = [];
+    const dataJugador: Jugador[] = [];
 
     if(resp.metadata[0].code=="00"){
       
       let listJugador= resp.response.items
       
 
-      listJugador.forEach((element : JugadorElement) => {
+      listJugador.forEach((element : Jugador) => {
         dataJugador.push(element)
       });
+      if (dataJugador.length == 1){
+        
+        this.jugadorService.setIdPersona(dataJugador[0].idPersona!.idPersona ) ;
+      }
 
-      this.dataSource=new MatTableDataSource<JugadorElement>(dataJugador);
+      this.dataSource=new MatTableDataSource<Jugador>(dataJugador);
 
       console.log("datasource:" , this.dataSource)
       this.dataSource.paginator = this.paginator
@@ -90,7 +87,8 @@ paginator!: MatPaginator;
   openJugadorDialog(){
 
     const dialogRef = this.dialog.open( NewjugadorComponent, {
-      width: '50%'
+      width: '50%',
+      height: '80%'
       // data: {name: this.name(), animal: this.animal()},
     });
 
@@ -112,17 +110,20 @@ paginator!: MatPaginator;
     
   }
 
-  edit(jugador:JugadorElement){
+  edit(jugador:Jugador){
 
-    this.jugadorService.getJugadorById(jugador.idJugador)
-    .subscribe({
-      next: res =>{
-        this.processJugadorResponse(res);
-      },
-      error: err =>{
-        return this.getJugadores();
-      }
-    })
+    console.log("icono edit envio de jugador", jugador)
+    // this.jugadorService.getJugadorById(jugador.idJugador)
+    // .subscribe({
+    //   next: res =>{
+    //     this.processJugadorResponse(res);
+         this.jugador = jugador;
+    //   },
+    //   error: err =>{
+    //     this.jugador = null;
+    //     return this.getJugadores();
+    //   }
+    // })
 
     this.isEditJugador = !this.isEditJugador;
     // const dialogRef = this.dialog.open( NewjugadorComponent, {
@@ -201,86 +202,4 @@ paginator!: MatPaginator;
     });
   }
 
-}
-
-
-
-export interface IdTipoDocumento {
-  idTipoDocumento: number;
-  tipoDocumento: string;
-}
-
-export interface IdDepMuniExpedicion {
-  idDepartamentoMunicipio: number;
-  idDepartamento: number;
-  municipio: string;
-}
-
-export interface IdTipoPersona {
-  idTipoPersona: number;
-  tipoPersona: string;
-}
-
-export interface IdPersona {
-  idPersona: number;
-  nombres: string;
-  apellidos: string;
-  idTipoDocumento: IdTipoDocumento;
-  idDepMuniExpedicion: IdDepMuniExpedicion;
-  fechaNacimiento: string;
-  sexo: number;
-  correo: string;
-  celular: number;
-  direccionRecidencia: string;
-  barrio: string;
-  estrato: number;
-  idTipoPersona: IdTipoPersona;
-}
-
-export interface IdProfesor {
-  idProfesor: number;
-  idPersona: IdPersona;
-  contrato: string;
-  especialidad: string;
-  salario: number;
-  fechaContratacion: string;
-  fechaBaja: string | null;
-}
-
-export interface IdPrograma {
-  idPrograma: number;
-  nombrePrograma: string;
-  descripcion: string;
-  idProfesor: IdProfesor;
-  baner: string;
-  costoAfiliacion: number;
-  incluyeAfiliacion: string;
-  costoMensualidad: number;
-  recargo: number;
-  incluyeMensualidad: string;
-  horario: string;
-}
-
-export interface IdEstado {
-  idEstadoJugador: number;
-  estadoJugador: string;
-}
-
-export interface JugadorElement {
-  idJugador: number;
-  idPersona: IdPersona;
-  idPrograma: IdPrograma;
-  posicion: string;
-  portero: boolean;
-  estatura: number;
-  peso: number;
-  uniTalla: string;
-  uniNombreEstampado: string;
-  uniNumeroEstampado: number;
-  uniEntreTalla: string;
-  uniEntreNumero: number;
-  autorizacionLlegaSalida: boolean;
-  idEstado: IdEstado;
-  fecha_creacion: string;
-  fecha_modificacion: string | null;
 }

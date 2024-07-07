@@ -1,5 +1,15 @@
 
-<h4 mat-dialog-title> {{estadoFormulario}} </h4>
+<h2 mat-dialog-title>Nueva persona</h2>
+<mat-dialog-content>
+    <app-persona [context]='personaContext' (carrarPadre)="onCancel()"></app-persona>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+  </mat-dialog-actions>
+
+<!-- <h4 mat-dialog-title> {{estadoFormulario}} </h4>
 <mat-dialog-content>
     <form [formGroup]="jugadorForm"> 
         <div>
@@ -60,4 +70,4 @@
 
  
 
-</mat-dialog-actions>
+</mat-dialog-actions> -->

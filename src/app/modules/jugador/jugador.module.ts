@@ -7,6 +7,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { NewjugadorComponent } from './components/newjugador/newjugador.component';
 import { EditjugadorComponent } from './components/editjugador/editjugador.component';
 import { NgbModule, NgbNavItem } from '@ng-bootstrap/ng-bootstrap';
+import { PersonaComponent } from '../persona/components/persona/persona.component';
 
 
 
@@ -21,7 +22,8 @@ import { NgbModule, NgbNavItem } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     MaterialModule,    
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PersonaComponent
     
   ],
   providers:[provideHttpClient()]

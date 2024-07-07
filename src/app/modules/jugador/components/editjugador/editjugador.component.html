@@ -8,50 +8,166 @@
 				<li [ngbNavItem]="1">
 					<button ngbNavLink>Persona</button>
 					<ng-template ngbNavContent>
-						<p>
-							Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-							master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-							keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
-							salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-						</p>
+						<app-persona [personaId]="idpersona" />
 					</ng-template>
 				</li>
 				<li [ngbNavItem]="2">
 					<button ngbNavLink>Jugador</button>
 					<ng-template ngbNavContent>
-						<p>
-							Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-							farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-							ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-							helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-							8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-							stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-						</p>
+
+						<div class=" container mt-5 px-3">
+
+							<form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()">
+								<div class="row">
+
+
+									<!-- <div class="form-group col-md-6">
+										<label for="idJugador">ID Jugador</label>
+										<input id="idJugador" formControlName="idJugador" type="text"
+											class="form-control" readonly>
+									</div> -->
+
+									<div class="form-group col-md-6">
+										<label for="posicion">Posición</label>
+										<input id="posicion" formControlName="posicion" type="text"
+											class="form-control">
+									</div>
+
+									<!-- <div class="form-check form-group col-md-6">
+										<input id="portero" formControlName="portero" type="checkbox"
+											class="form-check-input">
+										<label class="form-check-label" for="portero">Portero</label>
+									</div> -->
+
+									<div class="form-group col-md-6">
+										<label for="estatura">Estatura</label>
+										<input id="estatura" formControlName="estatura" type="number"
+											class="form-control">
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="peso">Peso</label>
+										<input id="peso" formControlName="peso" type="number" class="form-control">
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="uniTalla">Talla Uniforme</label>
+										<input id="uniTalla" formControlName="uniTalla" type="text"
+											class="form-control">
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="uniNombreEstampado">Nombre Estampado en Uniforme</label>
+										<input id="uniNombreEstampado" formControlName="uniNombreEstampado" type="text"
+											class="form-control">
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="uniNumeroEstampado">Número Estampado en Uniforme</label>
+										<input id="uniNumeroEstampado" formControlName="uniNumeroEstampado"
+											type="number" class="form-control">
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="uniEntreTalla">Talla Entre Uniformes</label>
+										<input id="uniEntreTalla" formControlName="uniEntreTalla" type="text"
+											class="form-control">
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="uniEntreNumero">Número Entre Uniformes</label>
+										<input id="uniEntreNumero" formControlName="uniEntreNumero" type="number"
+											class="form-control">
+									</div>
+
+									<div class=" form-switch form-group col-md-6 mt-4">
+
+										<label class="form-check-label" for="autorizacionLlegaSalida">Autorización
+											Llegada/Salida</label>
+									
+										<input id="autorizacionLlegaSalida" formControlName="autorizacionLlegaSalida"
+											type="checkbox" class="ms-3 form-check-input ">
+
+
+									</div>
+
+									<div class="form-group col-md-6">
+										<label for="fechaIngreso">Fecha de Ingreso</label>
+										<input id="fechaIngreso" formControlName="fechaIngreso" type="date"
+											class="form-control">
+									</div>
+
+									<div class="form-group col-md-6" formGroupName="idEstado">
+										<label for="idEstadoJugador">Estado Jugador ID</label>
+										<input id="idEstadoJugador" formControlName="idEstadoJugador" type="text"
+											class="form-control">
+									</div>
+
+								</div>
+
+								<button type="submit" class="btn btn-primary mt-3" [disabled]="jugadorForm.invalid">Guardar</button>
+   
+							</form>
+
+
+						</div>
+
+
+
+
 					</ng-template>
 				</li>
 				<li [ngbNavItem]="3">
-					<button ngbNavLink>Mensualidad</button>
+					<button ngbNavLink>Cotactos</button>
 					<ng-template ngbNavContent>
 						<p>
-							Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
-							Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-							Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
-							egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
-							tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-							magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+							Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id
+							diam. Nulla facilisi.
+							Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt
+							eu, congue et odio.
+							Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+							et. Sed diam urna,
+							egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+							faucibus nisl enim, nec
+							tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
+							natoque penatibus et
+							magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+							ultricies in eget
 							neque. Phasellus nec tortor vel tellus pulvinar feugiat.
 						</p>
 					</ng-template>
 				</li>
+
+				<li [ngbNavItem]="4">
+					<button ngbNavLink>Mensualidad</button>
+					<ng-template ngbNavContent>
+						<p>
+							Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id
+							diam. Nulla facilisi.
+							Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt
+							eu, congue et odio.
+							Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+							et. Sed diam urna,
+							egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+							faucibus nisl enim, nec
+							tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
+							natoque penatibus et
+							magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet
+							ultricies in eget
+							neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+						</p>
+					</ng-template>
+				</li>
+
+								
 			</ul>
-			
+
 			<div [ngbNavOutlet]="nav" class="mt-2"></div>
-			
+
 			<pre>Active: {{ active }}</pre>
-			
+
 
 		</div>
 	</div>
 
 </div>
-
