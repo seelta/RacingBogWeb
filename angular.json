@@ -40,11 +40,14 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              
               "@angular/material/prebuilt-themes/azure-blue.css",
-              
+              "node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/dataTables.min.js",
+              "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -101,9 +104,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
-               "@angular/material/prebuilt-themes/azure-blue.css"
-              
+              "src/styles.css",
+              "@angular/material/prebuilt-themes/azure-blue.css"
             ],
             "scripts": []
           }
