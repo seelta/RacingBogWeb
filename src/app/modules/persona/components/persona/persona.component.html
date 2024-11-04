@@ -1,0 +1,159 @@
+
+<app-toast></app-toast>
+<div class=" container mt-5 px-3">
+  <!-- <h2 *ngIf="!personaId">Agregar Persona</h2>
+    <h2 *ngIf="personaId">Editar Persona</h2> -->
+
+  <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="nombres" class="form-label">Nombres</label>
+          <input type="text" id="nombres" formControlName="nombres" class="form-control"
+            [class.is-invalid]="personaForm.get('nombres')?.invalid && personaForm.get('nombres')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input type="text" id="apellidos" formControlName="apellidos" class="form-control"
+            [class.is-invalid]="personaForm.get('apellidos')?.invalid && personaForm.get('apellidos')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <div formGroupName="idTipoDocumento" class="mb-3">
+          <label for="idTipoDocumento" class="form-label">Tipo de Documento</label>
+          <select id="idTipoDocumento" formControlName="idTipoDocumento" class="form-select"
+            [class.is-invalid]="personaForm.get('idTipoDocumento')?.invalid && personaForm.get('idTipoDocumento')?.touched">
+            <!-- <option *ngFor="let tipo of tiposDocumento" [value]="tipo.id">{{ tipo.nombre }}</option> -->
+            <option value="0">Selecione</option>
+            <option value="1">RN</option>
+            <option value="2">TE</option>
+            <option value="3">CC</option>
+          </select>
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+
+
+      </div>
+      <div class="col-md-6">
+        <div formGroupName="idDepMuniExpedicion" class="mb-3">
+          <label for="idDepartamentoMunicipio" class="form-label">Departamento/Municipio de Expedición</label>
+          <select id="idDepartamentoMunicipio" formControlName="idDepartamentoMunicipio" class="form-select"
+            [class.is-invalid]="personaForm.get('idDepartamentoMunicipio')?.invalid && personaForm.get('idDepartamentoMunicipio')?.touched">
+            <!-- <option *ngFor="let dep of departamentosMunicipios" [value]="dep.id">{{ dep.nombre }}</option> -->
+            <option value="11001">Bogota</option>
+          </select>
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="numDocumento" class="form-label">Numero documento</label>
+          <input type="number" id="numDocumento" formControlName="numDocumento" class="form-control"
+            [class.is-invalid]="personaForm.get('numDocumento')?.invalid && personaForm.get('numDocumento')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+          <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" class="form-control"
+            [class.is-invalid]="personaForm.get('fechaNacimiento')?.invalid && personaForm.get('fechaNacimiento')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="sexo" class="form-label">Sexo</label>
+          <select id="sexo" formControlName="sexo" class="form-select"
+            [class.is-invalid]="personaForm.get('sexo')?.invalid && personaForm.get('sexo')?.touched">
+            <option value="0">Seleccione</option>
+            <option value="1">Masculino</option>
+            <option value="2">Femenino</option>
+          </select>
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="correo" class="form-label">Correo Electrónico</label>
+          <input type="email" id="correo" formControlName="correo" class="form-control"
+            [class.is-invalid]="personaForm.get('correo')?.invalid && personaForm.get('correo')?.touched">
+          <div class="invalid-feedback">Ingrese un correo válido.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="celular" class="form-label">Celular</label>
+          <input type="text" id="celular" formControlName="celular" class="form-control"
+            [class.is-invalid]="personaForm.get('celular')?.invalid && personaForm.get('celular')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="direccionRecidencia" class="form-label">Dirección de Residencia</label>
+          <input type="text" id="direccionRecidencia" formControlName="direccionRecidencia" class="form-control"
+            [class.is-invalid]="personaForm.get('direccionRecidencia')?.invalid && personaForm.get('direccionRecidencia')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="barrio" class="form-label">Barrio</label>
+          <input type="text" id="barrio" formControlName="barrio" class="form-control"
+            [class.is-invalid]="personaForm.get('barrio')?.invalid && personaForm.get('barrio')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="estrato" class="form-label">Estrato</label>
+          <input type="number" id="estrato" formControlName="estrato" class="form-control"
+            [class.is-invalid]="personaForm.get('estrato')?.invalid && personaForm.get('estrato')?.touched">
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div formGroupName="idTipoPersona" class="mb-3">
+          <label for="idTipoPersona" class="form-label">Tipo de Persona</label>
+          <select id="idTipoPersona" formControlName="idTipoPersona" class="form-select"
+            [class.is-invalid]="personaForm.get('idTipoPersona')?.invalid && personaForm.get('idTipoPersona')?.touched">
+            <!-- <option *ngFor="let tipo of tiposPersona" [value]="tipo.id">{{ tipo.nombre }}</option> -->
+            <option value="1">Jugador</option>
+          </select>
+          <div class="invalid-feedback">Este campo es requerido.</div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="personaForm.invalid">Guardar</button>
+   
+    
+  </form>
+
+  <button color="primary" hidden (click)="onCancel()">
+    Cancelar cierre padre
+  </button>
+</div>
+

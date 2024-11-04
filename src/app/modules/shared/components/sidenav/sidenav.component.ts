@@ -1,11 +1,12 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrl: './sidenav.component.css'
+  styleUrl: './sidenav.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class SidenavComponent {
 
@@ -13,8 +14,8 @@ export class SidenavComponent {
 
   menuNav = [
     {name: "Home", route: "home", icon: "home"},
-    {name: "Categorías", route: "home", icon: "category"},
-    {name: "Productos", route: "home", icon: "production_quantity_limits"}
+    {name: "Jugador", route: "jugador", icon: "category"},
+    {name: "Mensualidad", route: "mensualidad", icon: "sports_soccer"}
   ]
 
   constructor(media: MediaMatcher) {

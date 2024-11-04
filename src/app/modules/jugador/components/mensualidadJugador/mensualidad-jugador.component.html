@@ -1,0 +1,31 @@
+<app-toast></app-toast>
+<div class=" container mt-5 px-3">
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  style="width: 100%;"  class="table table-striped table-bordered table-hover table-sm">
+    <thead>
+      <tr>
+         <th>Factura</th> 
+        <th>Monto</th>
+         <th>Recargo</th>
+        <th>Fecha pago</th>
+        <th>ValidaPago</th> 
+        <th>Acciones</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let men of mensualidadJ">
+        <td>{{men.mesAno | date:'YYYY / MMMM'}}</td>
+        <td>{{men.monto}}</td>
+        <td> <label [ngClass]= " (diaDelMes > 5) ? 'text-danger':'text-decoration-line-through' " >{{men.recargo}}</label>  </td>
+        <td>  {{men.fechaPago}} </td>
+        <td>{{men.validaPago}}</td>
+        <td> </td>
+      </tr>
+
+     
+
+    </tbody>
+  </table>
+
+</div>
+
