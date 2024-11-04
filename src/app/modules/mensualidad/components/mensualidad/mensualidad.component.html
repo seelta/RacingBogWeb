@@ -1,0 +1,294 @@
+<div class="card">
+
+    <div class="card-body">
+        <mat-card @fadeInOut>
+
+            <h4 class="text-center mt-3">Mensualidad</h4>
+
+            <div mat-card-image></div>
+
+            <mat-card-content class="container">
+
+
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header"> Pago mensualidad</div>
+                        <div class="card-body">
+
+
+
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-6 off-set-3">
+                                    <div class="mb-3">
+                                        <label for="numIdenti" class="form-label">Realiza la busqueda por numero de
+                                            identificacion</label>
+
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="numIdenti" class="form-control"
+                                                placeholder="Numero documento jugador" aria-label="Recipient's username"
+                                                aria-describedby="button-addon2">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                id="button-addon2">Buscar</button>
+                                        </div>
+
+                                        <div class="invalid-feedback">Este campo es requerido.</div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="container">
+
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <div class="row ms-4">
+
+
+                                            <div class="col-md-3">
+
+                                                <div class="card w-auto">
+                                                    <img class="card-img-top"
+                                                        src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                                                        alt="Card image" style="width:100%">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Jose acosta</h4>
+                                                        <p class="card-text">Some example text some example text. John
+                                                            Doe is an architect and engineer</p>
+                                                        <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-9">
+
+                                                <div class="row px-3">
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <dt>Coffee</dt>
+                                                            <dd>- black hot drink</dd>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <dt>Coffee</dt>
+                                                            <dd>- black hot drink</dd>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <dt>Coffee</dt>
+                                                            <dd>- black hot drink</dd>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <dt>Coffee</dt>
+                                                            <dd>- black hot drink</dd>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                        <hr>
+                                        <div class="row container px-4 justify-content-md-center">
+                                            <div class="col-md-6">
+                                                <table dataTable
+                                                    class="dataTable table table-striped table-bordered table-hover table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Factura</th>
+                                                            <th>Monto</th>
+                                                            <th>Recargo</th>
+                                                            <th>Select</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2024 / Agosto</td>
+                                                            <td>{{ "$"+("50000" | number:'1.0-0' )}}</td>
+                                                            <td> {{ "$"+("10000" | number:'1.0-0' )}}</td>
+
+                                                            <td>
+                                                                <div class=" form-switch form-group ">
+                                                                    <input id="selectMensualidad" type="checkbox"
+                                                                        class="ms-3 form-check-input ">
+                                                                </div>
+                                                            </td>
+
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="container justify-content-md-center">
+                                            <div class="card">
+                                                <div class="card-header"> Cargar comprobante de pago</div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class=" col-md-6">
+
+                                                            <div class="container justify-content-md-center pt-2">
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-3">
+                                                                            <dt>Fecha de pago</dt>
+                                                                            <dd> dd/mm/yyyy</dd>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-3">
+                                                                            <dt>Fecha cargue evidencia</dt>
+                                                                            <dd> {{ fechaActual | date:'dd/MM/yyyy' }}
+                                                                            </dd>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <dt>Observaciones</dt>
+                                                                        <dd> Ninguna</dd>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="mb-3">
+                                                                        <dt>Concepto del pago</dt>
+                                                                        <dd>
+                                                                            <table dataTable
+                                                                                class="dataTable table table-striped table-bordered table-hover table-sm">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Factura</th>
+                                                                                        <th>Monto</th>
+                                                                                        <th>Recargo</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>2024 / Agosto</td>
+                                                                                        <td>{{ "$"+("50000" |
+                                                                                            number:'1.0-0' )}}
+                                                                                        </td>
+                                                                                        <td> {{ "$"+("10000" |
+                                                                                            number:'1.0-0'
+                                                                                            )}}</td>
+
+                                                                                    </tr>
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </dd>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class=" col-md-6">
+                                                            <div class="container justify-content-md-center">
+
+                                                                <div class="Container  pt-2 mb-2">
+                                                                    <div class="">
+                                                                        <label for="imagen" class="form-label">
+                                                                            <dt>Seleccione evidencia de pago</dt>
+                                                                        </label>
+                                                                        <input type="file" id="imagen" te
+                                                                            class="form-control" accept="image/*"
+                                                                            (change)="upload($event)">
+                                                                    </div>
+                                                                </div>
+                                                                <div *ngIf="imagePreview"
+                                                                    class="container  justify-content-md-center text-center">
+                                                                    <img [src]="imagePreview" alt=""
+                                                                        class="img-fluid img-thumbnail"
+                                                                        style="max-height: 25rem;">
+                                                                    <p> <small><em> Te mostramos una vista previa del
+                                                                                recibo cargado. Por favor,
+                                                                                asegúrate de que sea una evidencia
+                                                                                válida de pago, donde sea fácil
+                                                                                identificar la fecha de pago y el total
+                                                                                pagado. </em> </small></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="col-6">
+                                                            <div class="row justify-content-end">
+                                                                <div class="col-md-3">
+                                                                    <dt>Total a pagar</dt>
+                                                                </div>
+                                                                <div class="col-md-3 text-primary h4">
+                                                                    <dd>{{ "$"+("10000" | number:'1.0-0' )}}</dd>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 text-center justify-content-md-center">
+                                                            <div class="row justify-content-around">
+                                                                <div class="col-md-8 text-end">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-danger"  >Cancelar</button>
+                                                                </div>
+                                                                <div class="col-md-4 text-start">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-primary" (click)="savePago($event)">Guardar</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </mat-card-content>
+
+
+
+        </mat-card>
+
+
+    </div>
+
+
+</div>

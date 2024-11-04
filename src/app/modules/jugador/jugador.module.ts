@@ -8,6 +8,9 @@ import { NewjugadorComponent } from './components/newjugador/newjugador.componen
 import { EditjugadorComponent } from './components/editjugador/editjugador.component';
 import { NgbModule, NgbNavItem } from '@ng-bootstrap/ng-bootstrap';
 import { PersonaComponent } from '../persona/components/persona/persona.component';
+import { MensualidadJugadorComponent } from './components/mensualidadJugador/mensualidad-jugador.component';
+import { DataTablesModule } from 'angular-datatables';
+import { ToastComponent } from '../shared/components/toast/toast.component';
 
 
 
@@ -15,7 +18,9 @@ import { PersonaComponent } from '../persona/components/persona/persona.componen
   declarations: [
     JugadorComponent,
     NewjugadorComponent,
-    EditjugadorComponent
+    EditjugadorComponent,
+    MensualidadJugadorComponent
+    
   ],
   imports: [
     CommonModule,
@@ -23,7 +28,9 @@ import { PersonaComponent } from '../persona/components/persona/persona.componen
     MaterialModule,    
     FormsModule,
     ReactiveFormsModule,
-    PersonaComponent
+    PersonaComponent,
+    DataTablesModule,
+    ToastComponent
     
   ],
   providers:[provideHttpClient()]

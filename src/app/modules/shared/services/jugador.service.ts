@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Jugador } from '../../../Models/jugador';
+import { DTOMensualidadJugador } from '../../../Models/dtomensualidad-jugador';
+import { Observable } from 'rxjs';
 
 
 const base_url ="http://localhost:8081/api/v1"
@@ -68,5 +70,8 @@ export class JugadorService {
     return this.http.put(endpoint,body);
   }
 
+  getMensualidadByIdJugador( id:any) : Observable<any> {
+    return this.http.get(`${base_url}/Mensualidad/Jugador/${id}`);
+  }
 
 }
